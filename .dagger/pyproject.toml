@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "firestarter"
+version = "0.0.0"
+description = ""
+authors = ["Jose Alvarez <jose.alvarez@prefapp.es>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.group.build_images]
+optional = true
+
+[tool.poetry.group.build_images.dependencies]
+firestarter-workflows = {git = "https://github.com/prefapp/firestarter-workflows", rev = "main", extras=["build_images"]}
+
+[tool.poetry.group.ci]
+optional = true
+
+[tool.poetry.group.ci.dependencies]
+firestarter-workflows = {git = "https://github.com/prefapp/firestarter-workflows", rev = "main", extras=["ci"]}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
